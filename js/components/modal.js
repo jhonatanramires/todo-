@@ -7,7 +7,6 @@ export default class Modal{
         this.completed = document.getElementById('modal-completed');
         this.todo = null;
         this.alert = new Alert('modal-alert');
-        console.log(this.alert);
     }
     setValues(todo){
         this.todo = todo;

@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const title = document.getElementById("title");
     const description = document.getElementById("description");
-    const alert = document.getElementById("alert");
     const table = document.getElementById("table");
     const btn = document.getElementById("add");
     let id = 1;
