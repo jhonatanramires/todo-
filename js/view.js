@@ -29,6 +29,13 @@ export default class view{
         this.model.removeTodo(id);
         document.getElementById(id).remove();
     }
+    editTodo(id, values){
+        this.model.editTodo(id,values)
+        const row = document.getElementById(id);
+        row.children[0].innerText = values.title;
+        row.children[1].innerText = values.description;
+        row.children[2].children[0].checked = values.completed; 
+    }
     createRow(todo){
         const row = table.insertRow();
         row.setAttribute('id', todo.id);
@@ -52,7 +59,12 @@ export default class view{
         editBtn.innerHTML = `<i class="fa fa-pencil"></i>`;
         editBtn.setAttribute('data-toggle', 'modal');
         editBtn.setAttribute('data-target', '#modal')
-        editBtn.onclick = () => this.modal.setValues(todo);
+        editBtn.onclick = () => this.modal.setValues({
+            id: todo.id,
+            title: row.children[0].innerText,
+            description: row.children[1].innerText,
+            completed: row.children[2].checked,
+        });
         row.children[3].appendChild(editBtn);
 
         const removeBtn = document.createElement('button');
